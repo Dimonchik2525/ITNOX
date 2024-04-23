@@ -1,0 +1,27 @@
+body {
+   //text-transform: uppercase;
+   //font-size: 50px;
+   //background-color: green;
+   //background: url('@img/cover.jpg');
+
+   @include adaptiveValue("font-size", 40, 50);
+   font-weight: 400;
+
+   .uncommon {
+      font-family: 'PFDinTextCondPro';
+   }
+
+   .svg-svg-bag-dims {
+      padding: 10px;
+
+      use {
+         width: 180px;
+         height: 180px;
+      }
+
+      width: 170px;
+      height: 170px;
+      fill: red;
+      stroke: black;
+   }
+}
