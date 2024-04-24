@@ -3,8 +3,8 @@ import '@scss/style.scss';
 //import * as bootstrap from 'bootstrap';
 
 //react components
-//import { createRoot } from 'react-dom/client';
-//import { App } from '../components/App.jsx';
+import { createRoot } from 'react-dom/client';
+import { App } from '../components/App.jsx';
 //import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 // Функционал ========================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================
@@ -18,7 +18,7 @@ flsFunctions.isWebp();
 /* Добавление loaded для HTML после полной загрузки страницы */
 //flsFunctions.addLoadedClass();
 /* Модуль для работы с меню (Бургер) */
-flsFunctions.menuInit();
+//flsFunctions.menuInit();
 /* Учет плавающей панели на мобильных устройствах при 100vh */
 //flsFunctions.fullVHfix();
 
@@ -27,7 +27,7 @@ flsFunctions.menuInit();
 Документация: https://template.fls.guru/template-docs/modul-spojlery.html
 Сниппет (HTML): spollers
 */
-flsFunctions.spollers();
+//flsFunctions.spollers();
 
 /*
 Модуль работы с табами
@@ -60,24 +60,24 @@ flsFunctions.spollers();
 // ========================================================================================================================================================================================================================================================
 // Работа с формами ========================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================
-import * as flsForms from "./files/forms/forms.js";
+//import * as flsForms from "./files/forms/forms.js";
 
 /* Работа с полями формы */
 /* Документация: https://template.fls.guru/template-docs/rabota-s-formami.html */
-flsForms.formFieldsInit({ viewPass: false });
+//flsForms.formFieldsInit({ viewPass: false });
 
 /* Oтправка формы */
 /* Документация: https://template.fls.guru/template-docs/rabota-s-formami.html */
-flsForms.formSubmit();
+//flsForms.formSubmit();
 
 /* Модуль формы "колличество" */
-flsForms.formQuantity();
+//flsForms.formQuantity();
 
 /* Модуль звездного рейтинга */
-flsForms.formRating();
+//flsForms.formRating();
 
 /* Модуль работы с select. */
-import './libs/select.js'
+//import './libs/select.js'
 
 /* (В работе) Модуль работы с масками.*/
 /*
@@ -86,7 +86,7 @@ import './libs/select.js'
 Документация плагина: https://github.com/RobinHerbots/inputmask
 Сниппет(HTML):
 */
-import "./files/forms/inputmask.js";
+//import "./files/forms/inputmask.js";
 
 /* Модуль работы с ползунком */
 /*
@@ -138,18 +138,18 @@ import "./files/forms/inputmask.js";
 // Наблюдатель за объектами c атрибутом data-watch
 // Документация: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сниппет(HTML):
-import './libs/watcher.js'
+//import './libs/watcher.js'
 
 // Функции работы скроллом
-import * as flsScroll from "./files/scroll/scroll.js";
+//import * as flsScroll from "./files/scroll/scroll.js";
 
 // Плавная навигация по странице
 // Документация: https://template.fls.guru/template-docs/modul-plavnoj-navigacii-po-stranice.html
-flsScroll.pageNavigation();
+//flsScroll.pageNavigation();
 
 // Функционал добавления классов к хедеру при прокрутке
 // Документация: https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html
-flsScroll.headerScroll();
+//flsScroll.headerScroll();
 
 // Функционал липкого блока
 //flsScroll.stickyBlock();
@@ -196,7 +196,7 @@ flsScroll.headerScroll();
    }
 ])*/
 
-/*const root = document.getElementById('root')
+const root = document.getElementById('root')
 if (!root) {
    throw new Error('root is not defined')
 }
@@ -205,6 +205,6 @@ let conteiner = createRoot(root)
 conteiner.render(
    //<RouterProvider router={router} />
    <App />
-)*/
+)
 //your own code
 import './scripts/script.js'

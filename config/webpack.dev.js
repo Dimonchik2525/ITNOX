@@ -116,7 +116,14 @@ const config = {
                },
             ],
          },
-
+         {
+            test: /\.svg$/,
+            use: [
+               {
+                  loader: 'svg-inline-loader',
+               },
+            ],
+         },
       ]
    },
    plugins: [
