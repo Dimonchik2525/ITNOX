@@ -18,7 +18,8 @@
 //@import "fonts/icons";
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "Inter";
+$fontFamily: var(--font-family);
+
 $fontSize: rem(18); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
@@ -29,6 +30,12 @@ $fontSize: rem(18); // где 14(px) - размер шрифта по умолч
    --blue: #a7a5c5;
    --accent-1: #22c6ea;
    --accent-2: #22233e;
+}
+
+:root {
+   --font-family: "Inter", sans-serif;
+   --second-family: "Manrope", sans-serif;
+   --third-family: "Ubuntu", sans-serif;
 }
 
 $mainColor: var(--white-1); // Цвет шрифта по умолчанию
@@ -157,11 +164,11 @@ body {
 @import "@scss/base/base";
 
 // Подключение стилей общих элементов проекта
-//@import "@scss/null/common";
+@import "@scss/null/common";
 
 // Подключение стилей отдельных блоков
-//@import "@scss/pages/footer";
-//@import "@scss/pages/header";
+@import "@scss/pages/footer";
+@import "@scss/pages/header";
 
 // Подключение стилей отдельных страниц
 //@import "home";

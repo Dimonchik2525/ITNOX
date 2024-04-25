@@ -1,37 +1,250 @@
+.header {
+   border-bottom: 1px solid #383a60;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 2;
+   background: var(--dark-blue);
+
+   &__container {}
+
+   &__block {
+      min-height: rem(70);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   &__logo {
+      font-size: rem(24);
+      font-weight: 500;
+      line-height: 135%;
+      letter-spacing: 0.03em;
+      position: relative;
+
+      span {
+         color: var(--accent-1);
+      }
+   }
+
+   .menu {
+      @media (max-width:500px) {
+         display: block;
+         position: absolute;
+         top: rem(71);
+         left: -100%;
+         width: 100%;
+         height: 100vh;
+         transition: all 0.8s ease 0s;
+         background: var(--dark-blue);
+         padding: rem(30) rem(20) rem(28) rem(20);
+
+         @media (max-height:540px) {
+            max-height: calc(100vh - rem(69));
+            overflow-y: auto;
+         }
+      }
+
+      .menu-open & {
+         left: rem(0);
+      }
+
+      &__body {}
+
+      &__list {
+         display: none;
+         padding-bottom: rem(58);
+
+         @media (max-width:500px) {
+            display: flex;
+            flex-direction: column;
+            row-gap: rem(28);
+         }
+      }
+
+      &__item {}
+
+      &__link {
+         font-family: var(--second-family);
+         font-weight: 700;
+         font-size: 24px;
+         line-height: 130%;
+
+         @media (any-hover: hover) {
+            &:hover {
+               text-decoration: underline;
+            }
+         }
+      }
+   }
+
+   &__contacts {
+      display: flex;
+      @include adaptiveValue("gap", 100, 20, 1400, 800, 1);
+
+      @media (max-width:500px) {
+         display: none;
+         flex-direction: column;
+         padding-bottom: rem(46);
+      }
+
+      .menu-open & {
+         display: flex;
+      }
+
+      div {
+         display: flex;
+         column-gap: rem(14);
+         align-items: center;
+      }
+
+      svg {
+         fill: var(--accent-1);
+         background: transparent;
+         transition: all 0.8s ease 0s;
+
+         @media (any-hover: hover) {
+            &:hover {
+               transform: scale(1.3);
+               fill: rgb(160, 160, 252);
+            }
+         }
+      }
+
+      &__mail {
+         svg {
+            width: rem(20);
+            height: rem(16);
+         }
+
+         &__text {
+            line-height: 135%;
+
+            @media (any-hover: hover) {
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+         }
+      }
+
+      &__phone {
+         svg {
+            width: rem(16);
+            height: rem(20);
+         }
+
+         &__text {
+            @media (any-hover: hover) {
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+
+            line-height: 135%;
+         }
+      }
+   }
+
+   &__icons {
+      display: none;
+
+      @media (max-width:500px) {
+         display: flex;
+         justify-content: space-between;
+      }
+
+      a {
+         width: rem(60);
+         height: rem(60);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 20px 20px 70px 0 rgba(21, 21, 38, 0.7), -20px -20px 70px 0 rgba(44, 45, 79, 0.41), inset 2px 2px 4px 0 rgba(151, 149, 255, 0.16), inset -2px -2px 4px 0 rgba(5, 5, 16, 0.4);
+         background: linear-gradient(153deg, #1a1b30 0%, #21203d 100%);
+         transition: all 0.8s ease 0s;
+
+         @media (any-hover: hover) {
+            &:hover {
+               svg {
+                  transform: scale(1.2);
+               }
+
+               background: linear-gradient(153deg, #292a46 0%, #131228 100%);
+            }
+         }
+      }
+
+      svg {
+         transition: all 0.8s ease 0s;
+      }
+
+      &__phone {
+         svg {
+            width: rem(22);
+            height: rem(28);
+            fill: var(--white-1);
+            stroke-width: 0.40px;
+            stroke: #1d1d35;
+         }
+      }
+
+      &__culc {
+         svg {
+            height: rem(26);
+            width: rem(26);
+            stroke-width: 1.50px;
+            stroke: var(--white-1)
+         }
+      }
+   }
+}
+
 //====================================================================================================
 
 //Burger
 
-/*.icon-menu {
-
+.icon-menu {
+   fill: linear-gradient(153deg, #1a1b30 0%, #21203d 100%);
+   box-shadow: 20px 20px 70px 0 rgba(21, 21, 38, 0.7), -20px -20px 70px 0 rgba(44, 45, 79, 0.41), inset 2px 2px 4px 0 rgba(151, 149, 255, 0.16), inset -2px -2px 4px 0 rgba(5, 5, 16, 0.4);
    display: none;
 
-   @media (max-width:750px) {
+   @media (any-hover: hover) {
+      &:hover {
+         background: linear-gradient(153deg, #292a46 0%, #131228 100%);
+         box-shadow: 25px 25px 70px 0 rgba(21, 21, 38, 0.8), -15px -15px 70px 0 rgba(44, 45, 79, 0.41), inset 2px 2px 4px 0 rgba(151, 149, 255, 0.16), inset -2px -2px 4px 0 rgba(5, 5, 16, 0.4);
+      }
+   }
+
+   @media (max-width:500px) {
+      transition: all 0.8s ease 0s;
       display: block;
       position: relative;
-      width: rem(30);
-      height: rem(18);
+      width: rem(42);
+      height: rem(42);
       cursor: pointer;
-      z-index: 5;
+      z-index: 50;
 
       span,
       &::before,
       &::after {
          content: "";
-         transition: all 0.3s ease 0s;
-         right: 0;
+         transition: all 0.5s ease 0s;
+         right: 50%;
          position: absolute;
-         width: 100%;
+         width: 61.9%;
          height: rem(2);
-         background-color: #000;
+         background-color: #d9d9d9;
+         transform: translateX(50%);
       }
 
       &::before {
-         top: 0;
+         top: 28%;
       }
 
       &::after {
-         bottom: 0;
+         bottom: 28%;
       }
 
       span {
@@ -48,13 +261,15 @@
 
          &::before {
             top: calc(50% - rem(1));
+            left: 25%;
             transform: rotate(-45deg);
          }
 
          &::after {
+            left: 25%;
             bottom: calc(50% - rem(1));
             transform: rotate(45deg);
          }
       }
    }
-}*/
+}

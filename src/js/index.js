@@ -1,8 +1,8 @@
 import '@scss/style.scss';
 //add bootstrap
 //import * as bootstrap from 'bootstrap';
-
 //react components
+import Template from './Template.js';
 import { createRoot } from 'react-dom/client';
 import { App } from '../components/App.jsx';
 //import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -204,7 +204,11 @@ if (!root) {
 let conteiner = createRoot(root)
 conteiner.render(
    //<RouterProvider router={router} />
-   <App />
+   <div>
+      <App />
+      <Template />
+   </div>
 )
 //your own code
-import './scripts/script.js'
+import './scripts/script.js';
+
