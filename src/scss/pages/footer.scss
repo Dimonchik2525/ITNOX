@@ -1,10 +1,49 @@
 .footer {
+   border-top: 1px solid #383a60;
+   padding-top: rem(30);
+   @include adaptiveValue("padding-bottom", 30, 106);
+   overflow: auto;
+
    &__container {}
 
-   &__block {}
+   &__block {
+      a {
+         @media (any-hover: hover) {
+            &:hover {
+               text-decoration: underline;
+            }
+         }
+      }
+   }
+
+   &__title {
+      font-size: rem(16);
+      color: #9fa1bf;
+
+      &:not(:last-child) {
+         padding-bottom: rem(15);
+      }
+   }
+
+   &__item {
+      font-weight: 500;
+      line-height: 150%;
+      color: var(--white-1);
+   }
 
    &__hat {
+      display: grid;
+      grid-template: auto / repeat(auto-fit, minmax(rem(200), 1fr));
+      @include adaptiveValue("gap", 100, 20, 1200, 550, 1);
+      @include adaptiveValue("padding-bottom", 48, 20, 1200, 500, 1);
+
+      div {
+         max-width: rem(290);
+      }
+
       &__address {
+         max-width: rem(290);
+
          &__title {}
 
          &__text {}
@@ -13,7 +52,9 @@
       &__phone {
          &__title {}
 
-         &__text {}
+         &__text {
+            display: block;
+         }
       }
 
       &__mail {
@@ -24,6 +65,18 @@
    }
 
    &__basement {
-      p {}
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width:500px) {
+         flex-direction: column;
+         justify-content: start;
+      }
+
+      p {
+         font-size: rem(16);
+         line-height: 150%;
+         color: #5b5d82;
+      }
    }
 }

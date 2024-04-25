@@ -204,10 +204,10 @@ if (!root) {
 let conteiner = createRoot(root)
 conteiner.render(
    //<RouterProvider router={router} />
-   <div>
+   <>
       <App />
       <Template />
-   </div>
+   </>
 )
 //your own code
 import './scripts/script.js';
