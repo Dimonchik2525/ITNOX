@@ -14,7 +14,7 @@ export const Hero = () => {
       };
    }, [])
    return (
-      <div className="hero">
+      <section className="hero">
          <div className="hero__container">
             <div className="hero__block">
                <div className="hero__content">
@@ -29,7 +29,7 @@ export const Hero = () => {
                </div>
             </div>
          </div>
-      </div>
+      </section>
    )
 }
 
