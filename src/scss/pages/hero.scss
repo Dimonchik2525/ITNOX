@@ -1,3 +1,75 @@
 .main {
    margin-top: rem(70);
 }
+
+//!! Hero block =======================================================
+
+.hero {
+   background: url('img/hero/hero__bg.png')0 0 /100% 100% no-repeat;
+   @include adaptiveValue("padding-top", 120, 50);
+   @include adaptiveValue("padding-bottom", 140, 60);
+
+   &__container {}
+
+   &__block {
+      display: grid;
+      grid-template: auto/auto 47.25%;
+      align-items: center;
+      gap: rem(30);
+
+      @media (max-width:700px) {
+         grid-template: auto/auto;
+         align-items: start;
+         gap: rem(10);
+      }
+
+   }
+
+   &__content {
+      @media (min-width:700px) {
+         margin-right: -18.5%;
+      }
+
+      &__title {
+         font-family: var(--second-family);
+         @include adaptiveValue("font-size", 62, 30);
+         font-weight: 700;
+         line-height: 130%;
+         color: var(--white-1);
+
+         &:not(:last-child) {
+            @include adaptiveValue("padding-bottom", 40, 14);
+         }
+      }
+
+      &__subtitle {
+         max-width: rem(580);
+         @include adaptiveValue("font-size", 18, 16);
+         line-height: 150%;
+         color: var(--white-1);
+         @include adaptiveValue("padding-bottom", 80, 14);
+
+      }
+
+      &__button {}
+   }
+
+   &__img {
+      display: flex;
+
+      @media (max-width:700px) {
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
+
+      img {
+         @media (max-width:700px) {
+            transform: scale(0.9) translateX(-7%);
+         }
+
+         max-width: 100%;
+         object-position: top;
+      }
+   }
+}

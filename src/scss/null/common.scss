@@ -1,1 +1,22 @@
 // Заголовки, общие БЄМ блоки и проче...
+.button__common {
+   width: rem(254);
+   height: rem(64);
+   box-shadow: rem(5) rem(5) rem(30) 0 rgba(62, 92, 147, 0.2);
+   background: linear-gradient(90deg, rgba(34, 198, 234, 1) 0%, rgba(97, 68, 211, 0.6279761904761905) 100%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 500;
+   line-height: 150%;
+   text-align: center;
+   color: var(--white-1);
+   transition: all 0.8s ease 0s;
+
+   @media (any-hover: hover) {
+      &:hover {
+         box-shadow: rem(5) rem(5) rem(30) 0 rgba(71, 102, 160, 0.2);
+         background-color: rgb(255, 107, 107);
+      }
+   }
+}

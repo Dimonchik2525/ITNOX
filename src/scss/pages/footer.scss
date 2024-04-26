@@ -2,7 +2,7 @@
    border-top: 1px solid #383a60;
    padding-top: rem(30);
    @include adaptiveValue("padding-bottom", 30, 106);
-   overflow: auto;
+   //overflow: auto;
 
    &__container {}
 
