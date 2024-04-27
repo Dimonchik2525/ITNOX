@@ -18,26 +18,27 @@ EffectFade, Lazy, Manipulation
 
 // Стили Swiper
 // Базовые стили
-//import "../../scss/base/swiper.scss";
+import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+//import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
 // import 'swiper/css';
 
+let servicesSlider;
 // Инициализация слайдеров
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.services__items__slider')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		servicesSlider = new Swiper('.services__items__slider', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation],
+			modules: [Navigation, Pagination],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
-			spaceBetween: 0,
+			spaceBetween: 20,
 			autoHeight: true,
 			speed: 800,
 
@@ -73,10 +74,10 @@ function initSliders() {
 			*/
 
 			// Кнопки "влево/вправо"
-			navigation: {
+			/*navigation: {
 				prevEl: '.swiper-button-prev',
 				nextEl: '.swiper-button-next',
-			},
+			},*/
 
 			// Брейкпоинты
 			/*
@@ -135,10 +136,24 @@ function initSlidersScroll() {
 		}
 	}
 }
-
-window.addEventListener("load", function (e) {
+function deleteSliders() {
+	if (servicesSlider) {
+		servicesSlider.destroy();
+		servicesSlider = null;
+	}
+}
+initSliders();
+window.addEventListener('resize', function () {
+	deleteSliders()
+	initSliders()
+})
+/*window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
 	initSliders();
+	window.addEventListener('resize', function () {
+		deleteSliders()
+		initSliders()
+	})
 	// Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
 	//initSlidersScroll();
-});
+});*/

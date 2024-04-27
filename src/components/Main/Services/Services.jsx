@@ -1,7 +1,11 @@
 
+import Navigation from "../../Common/Navigation"
+//import { deleteSliders, initSliders } from "../../../js/files/sliders"
+import { useEffect } from "react";
 
 
-export const Services = () => {
+
+export const Services = (props) => {
 
    let arr = [
       {
@@ -45,31 +49,42 @@ export const Services = () => {
             'Видеонаблюдение',
             'СКУД',
             'Монтаж видеонаблюдения',
-            'Поддержка сайта',
-            'Аудит сайта',
          ]
       },
    ]
    let items = []
    arr.map((item, index) => {
       items.push(
-         <article key={index} className="services__item">
+         <article key={index} className="services__item swiper-slide">
             <h3 className="services__item__title">{item.title}</h3>
-            {item.links.map((item, index) => {
-               return <a key={index} href="#" className="services__item__link">{item}</a>
-            })}
+            <ul className="services__item__list">
+               {item.links.map((item, index) => {
+                  return <li key={index}><a href="#" className="services__item__link">{item}</a></li>
+               })}
+            </ul>
          </article>
       )
    })
+
 
    return (
       <section className="services">
          <div className="services__container">
             <div className="services__block">
+               <Navigation text={'Услуги'} />
                <h2 className="services__title">Десятки решений для вашего бизнеса</h2>
-               <div className="services__items">
-                  {items}
-               </div>
+               {props.size > 500 ?
+                  <div className="services__items__wrapper">
+                     <div className="services__items">
+                        {items}
+                     </div>
+                  </div> :
+                  <div className="services__items__slider swiper">
+                     <div className="services__items services__items__wrapper swiper-wrapper">
+                        {items}
+                     </div>
+                  </div>
+               }
             </div>
          </div>
       </section>
