@@ -1,12 +1,52 @@
 
-import Navigation from "../../Common/Navigation"
-//import { deleteSliders, initSliders } from "../../../js/files/sliders"
-import { useEffect } from "react";
-
-
+import Navigate from "../../Common/Navigation"
+import { useEffect, useState } from "react";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
 
 export const Services = (props) => {
+   //??slider set ups
+   const [servicesSlider, setServicesSlider] = useState(null);
 
+   useEffect(() => {
+      initSlider();
+      window.addEventListener('resize', handleResize);
+      return () => {
+         window.removeEventListener('resize', handleResize);
+      };
+   }, [props.size]);
+
+   function initSlider() {
+      const slider = new Swiper('.services__items__slider', {
+         modules: [Navigation],
+         observer: true,
+         observeParents: true,
+         slidesPerView: 1,
+         spaceBetween: 20,
+         // autoHeight: true,
+         speed: 800,
+      });
+      setServicesSlider(slider);
+   }
+
+   function deleteSlider() {
+      if (servicesSlider) {
+         servicesSlider.destroy();
+         setServicesSlider(null);
+      }
+   }
+
+   function handleResize() {
+      if (props.size > 500) {
+         deleteSlider();
+      }
+      else {
+         deleteSlider();
+         initSlider();
+      }
+   }
+
+   //!!array of items(u can change them)
    let arr = [
       {
          title: 'Интернет-решения',
@@ -39,6 +79,22 @@ export const Services = (props) => {
             'IT Аудит',
             'Защита информации',
             'Монтаж АТС',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Защита информации',
+            'Монтаж АТС',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Защита информации',
+            'Монтаж АТС',
+            'Развал-схождение',
+            'Развал-схождение',
+            'Развал-схождение',
          ]
       },
       {
@@ -49,38 +105,70 @@ export const Services = (props) => {
             'Видеонаблюдение',
             'СКУД',
             'Монтаж видеонаблюдения',
+            'Контроль доступа',
+            'Сигнализации',
+            'Видеонаблюдение',
+            'СКУД',
+            'Монтаж видеонаблюдения',
          ]
       },
    ]
+   //?? button show more
+   let obj = {}
+   arr.map((item, i) => {
+      obj[i] = false
+   })
+   let [full, setFull] = useState(obj)
+   function change(ind) {
+      setFull({ ...full, [ind]: !full[ind] })
+   }
    let items = []
+   //!!content part
    arr.map((item, index) => {
       items.push(
          <article key={index} className="services__item swiper-slide">
             <h3 className="services__item__title">{item.title}</h3>
             <ul className="services__item__list">
-               {item.links.map((item, index) => {
-                  return <li key={index}><a href="#" className="services__item__link">{item}</a></li>
+               {item.links.map((itm, i) => {
+                  if (i < 7) {
+                     return <li className="services__item__wrapper" key={i}><a href="#" className="services__item__link">{itm}</a></li>
+                  }
+                  if (i > 7) {
+                     return <li className="services__item__wrapper" style={full[index] ? { display: 'block' } : { display: 'none' }} key={i}><a href="#" className="services__item__link">{itm}</a></li>
+                  }
                })}
+               {
+                  item.links.length > 8 ?
+                     <li><button onClick={() => change(index)} className="services__item__button">{full[index] ? "Hide <-" : "Еще ->"}</button></li>
+                     :
+                     ''
+               }
             </ul>
-         </article>
+         </article >
       )
    })
-
+   /*useEffect(() => {
+      for (let item of Object.keys(full)) {
+         if (full[item]) {
+            servicesSlider.params.autoHeight = false
+            //console.log(servicesSlider.params.autoHeight)
+         }
+      }
+   }, [full])*/
 
    return (
       <section className="services">
          <div className="services__container">
             <div className="services__block">
-               <Navigation text={'Услуги'} />
+               <Navigate text={'Услуги'} />
                <h2 className="services__title">Десятки решений для вашего бизнеса</h2>
                {props.size > 500 ?
-                  <div className="services__items__wrapper">
-                     <div className="services__items">
-                        {items}
-                     </div>
-                  </div> :
+                  <div className="services__items">
+                     {items}
+                  </div>
+                  :
                   <div className="services__items__slider swiper">
-                     <div className="services__items services__items__wrapper swiper-wrapper">
+                     <div className="services__items__sl services__items__wrapper swiper-wrapper">
                         {items}
                      </div>
                   </div>
@@ -90,5 +178,4 @@ export const Services = (props) => {
       </section>
    )
 }
-
 export default Services

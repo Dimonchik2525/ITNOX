@@ -24,11 +24,13 @@
    &__items {
       @media (min-width:500px) {
          display: grid;
-         grid-template: 1fr/repeat(auto-fit, minmax(rem(400), 1fr));
-         grid-auto-rows: 1fr;
+         grid-template: auto/repeat(auto-fit, minmax(rem(400), 1fr));
+         grid-auto-rows: auto;
          gap: rem(20);
       }
    }
+
+   &__items__sl {}
 
    &__item {
       border: rem(1) solid #3f4e72;
@@ -62,10 +64,17 @@
       }
 
       &__link {
-         //display: block;
          line-height: 140%;
          padding-bottom: rem(5);
          border-bottom: rem(1) solid #22C6EA;
+      }
+
+      &__wrapper {
+         transition: all 0.8s ease 0s;
+      }
+
+      &__button {
+         justify-self: start;
       }
    }
 }

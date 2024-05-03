@@ -2,7 +2,7 @@
 import Button from "../../Common/Button"
 
 export const Hero = (props) => {
-   let but = <Button class={"hero__content__button"} name={'Посмотреть услуги'} />;
+   let but = <Button class={"hero__content__button"}>Посмотреть услуги</Button>
    return (
       <section className="hero">
          <div className="hero__container">

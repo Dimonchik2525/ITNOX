@@ -1,8 +1,8 @@
-export const Navigation = (props) => {
+export const Navigate = (props) => {
 
    return (
       <button className="navigation">{props.text}</button>
    )
 }
 
-export default Navigation
+export default Navigate
