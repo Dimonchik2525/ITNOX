@@ -22,7 +22,7 @@
 }
 
 .navigation {
-   width: rem(80);
+   min-width: rem(80);
    height: rem(36);
    display: flex;
    align-items: center;

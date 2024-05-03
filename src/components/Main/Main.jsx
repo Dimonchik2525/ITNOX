@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Hero from "./Hero/Hero"
 import Services from "./Services/Services"
+import Advantages from "./Advantages/Advantages"
 
 
 export const Main = () => {
@@ -19,6 +20,7 @@ export const Main = () => {
       <main className="main">
          <Hero size={size} />
          <Services size={size} />
+         <Advantages />
       </main>
    )
 }

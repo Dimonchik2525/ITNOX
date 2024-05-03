@@ -1,0 +1,27 @@
+.advantages {
+   &__container {}
+
+   &__block {}
+
+   &__header {
+      &__title {}
+
+      &__subtitle {}
+   }
+
+   &__slider {}
+
+   &__wrapper {}
+
+   &__slide {
+      &__text {
+         &__title {}
+
+         &__subtitle {
+            p {}
+         }
+      }
+
+      &__img {}
+   }
+}
