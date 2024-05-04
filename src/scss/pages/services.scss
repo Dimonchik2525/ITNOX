@@ -1,5 +1,5 @@
 .services {
-   @include adaptiveValue("padding-top", 30, 0, 800, 320, 1);
+   padding-top: rem(30);
    @include adaptiveValue("padding-bottom", 59, 40);
    background: url('img/services/services__bg.png') 0 0 /100% 100% no-repeat;
 

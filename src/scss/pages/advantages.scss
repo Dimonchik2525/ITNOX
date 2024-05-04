@@ -1,27 +1,136 @@
 .advantages {
+   padding-top: rem(20);
+   background: url('img/advantages/advantages__bg.png') 0 0 /100% 100% no-repeat;
+
    &__container {}
 
    &__block {}
 
    &__header {
-      &__title {}
+      padding-top: rem(10);
+      @include adaptiveValue("padding-bottom", 64, 40);
+      display: grid;
+      grid-template: auto/minmax(auto, rem(580)) minmax(auto, rem(390));
+      @include adaptiveValue("gap", 40, 20);
 
-      &__subtitle {}
+      @media (max-width:$tablet) {
+         grid-template: auto auto/auto;
+
+      }
+
+      &__title {
+         font-family: var(--second-family);
+         font-weight: 800;
+         @include adaptiveValue("font-size", 40, 24);
+         letter-spacing: 0.15em;
+         text-transform: uppercase;
+
+      }
+
+      &__subtitle {
+         @include adaptiveValue("font-size", 18, 16);
+         line-height: 150%;
+         color: var(--white-1);
+      }
    }
 
-   &__slider {}
+   &__slider {
+      background: linear-gradient(153deg, rgba(26, 27, 48, 0.8) 0%, rgba(33, 32, 61, 0.8) 100%);
+      @include adaptiveValue("padding-top", 100, 30);
+      @include adaptiveValue("padding-left", 37.5, 0);
+      @include adaptiveValue("padding-right", 37.5, 0);
+      position: relative;
+
+      &__pagination {
+         position: absolute;
+         text-align: center;
+         z-index: 10;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: auto;
+         display: grid;
+         grid-template: rem(60)/repeat(auto-fit, minmax(rem(125), 1fr));
+         grid-auto-rows: rem(60);
+         transition: all 0.8s ease 0s;
+
+         @media (max-width:660px) {
+            grid-template: auto/repeat(auto-fit, minmax(rem(20), 1fr));
+            @include adaptiveValue("height", 60, 25);
+         }
+
+         .swiper-pagination-bullet {
+            cursor: pointer;
+            transition: all 0.8s ease 0s;
+            display: block;
+            background: #141428;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #3c3c72;
+
+            &__text {
+               @include adaptiveValue("font-size", 16, 12);
+               text-align: center;
+            }
+
+            &-active {
+               background: var(--accent-1);
+
+               &__text {
+                  font-size: rem(16);
+                  color: var(--black-1);
+               }
+            }
+         }
+
+      }
+   }
 
    &__wrapper {}
 
    &__slide {
+      display: flex;
+      justify-content: space-between;
+      @include adaptiveValue("gap", 46.85, 0);
+
+      @media (max-width:800px) {
+         flex-direction: column-reverse;
+      }
+
       &__text {
-         &__title {}
+         &__title {
+            font-weight: 500;
+            @include adaptiveValue("font-size", 28, 20);
+            @include adaptiveValue("padding-bottom", 6, 20, 1440, 900, 1);
+         }
 
          &__subtitle {
-            p {}
+            display: flex;
+            @include adaptiveValue("gap", 46, 10);
+
+            @media (max-width:660px) {
+               flex-direction: column;
+            }
+
+            p {
+               max-width: rem(375);
+               font-weight: 300;
+               font-size: 16px;
+               line-height: 150%;
+               color: #bfcee3;
+            }
+
+            padding-bottom: rem(258);
+            @include adaptiveValue("padding-bottom", 258, 48);
          }
       }
 
-      &__img {}
+      &__img {
+         img {
+            @include adaptiveValue("width", 281, 80);
+            @include adaptiveValue("height", 300, 80);
+         }
+      }
    }
 }

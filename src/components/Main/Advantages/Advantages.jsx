@@ -12,6 +12,7 @@ export const Advantages = (props) => {
             'IT-инфраструктура нуждается в наблюдении специалиста, а возможности нанять штатного IT-шника нет? Обратите внимания на аутсорсинг, зачастую, он обходится дешевле, чем заработная плата работника в штате.',
          ],
          bullet: 'Персонал',
+         img: 'Cloud'
       },
       {
          title: 'Повысим вашу эффективность',
@@ -20,6 +21,7 @@ export const Advantages = (props) => {
 
          ],
          bullet: 'Эффективность',
+         img: 'Thumb up'
       },
       {
          title: 'Делегируем ваши обязанности',
@@ -28,6 +30,7 @@ export const Advantages = (props) => {
             'IT-инфраструктура нуждается в наблюдении специалиста, а возможности нанять штатного IT-шника нет? Обратите внимания на аутсорсинг, зачастую, он обходится дешевле, чем заработная плата работника в штате.',
          ],
          bullet: 'Делегирование',
+         img: 'Hearth'
       },
       {
          title: 'Нет невозможных задач',
@@ -36,6 +39,7 @@ export const Advantages = (props) => {
             'IT-инфраструктура нуждается в наблюдении специалиста, а возможности нанять штатного IT-шника нет? Обратите внимания на аутсорсинг, зачастую, он обходится дешевле, чем заработная плата работника в штате.',
          ],
          bullet: 'Решение задач',
+         img: 'User'
       },
       {
          title: 'Высочайшая компетентность',
@@ -44,6 +48,7 @@ export const Advantages = (props) => {
             'IT-инфраструктура нуждается в наблюдении специалиста, а возможности нанять штатного IT-шника нет? Обратите внимания на аутсорсинг, зачастую, он обходится дешевле, чем заработная плата работника в штате.',
          ],
          bullet: 'Компетентность',
+         img: "Moon"
       }
    ]
    let items = []
@@ -58,7 +63,9 @@ export const Advantages = (props) => {
                   })}
                </div>
             </div>
-            <div className="advantages__slide__img"></div>
+            <div className="advantages__slide__img">
+               <img src={`img/advantages/${itm.img}.png`}></img>
+            </div>
          </div>
       )
    })
@@ -68,9 +75,21 @@ export const Advantages = (props) => {
          observer: true,
          observeParents: true,
          slidesPerView: 1,
-         spaceBetween: 20,
+         spaceBetween: 50,
          autoHeight: true,
          speed: 800,
+         pagination: {
+            el: '.advantages__slider__pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+               if (props.size > 660) {
+                  return `<div class="${className}"><span class="${className}__text">${arr[index].bullet}</span></div>`;
+               }
+               else {
+                  return `<div class="${className}"><span class="${className}__text"></span></div>`;
+               }
+            },
+         },
       });
    }, [])
    return (
@@ -85,6 +104,9 @@ export const Advantages = (props) => {
                <div className="advantages__slider swiper">
                   <div className="advantages__wrapper swiper-wrapper">
                      {items}
+                  </div>
+                  <div className="advantages__slider__pagination">
+
                   </div>
                </div>
             </div>

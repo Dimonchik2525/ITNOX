@@ -20,7 +20,7 @@ export const Main = () => {
       <main className="main">
          <Hero size={size} />
          <Services size={size} />
-         <Advantages />
+         <Advantages size={size} />
       </main>
    )
 }

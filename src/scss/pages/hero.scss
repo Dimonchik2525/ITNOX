@@ -7,7 +7,7 @@
 .hero {
    background: url('img/hero/hero__bg.png')0 0 /100% 100% no-repeat;
    @include adaptiveValue("padding-top", 120, 50);
-   @include adaptiveValue("padding-bottom", 140, 60);
+   @include adaptiveValue("padding-bottom", 140, 30);
 
    &__container {}
 
