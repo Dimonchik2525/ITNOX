@@ -70,28 +70,39 @@ export const Advantages = (props) => {
       )
    })
    useEffect(() => {
-      const slider = new Swiper('.advantages__slider', {
-         modules: [Navigation, Pagination],
-         observer: true,
-         observeParents: true,
-         slidesPerView: 1,
-         spaceBetween: 50,
-         autoHeight: true,
-         speed: 800,
-         pagination: {
-            el: '.advantages__slider__pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-               if (props.size > 660) {
-                  return `<div class="${className}"><span class="${className}__text">${arr[index].bullet}</span></div>`;
-               }
-               else {
-                  return `<div class="${className}"><span class="${className}__text"></span></div>`;
-               }
+      let slider;
+
+      function initSwiper() {
+         slider = new Swiper('.advantages__slider', {
+            modules: [Navigation, Pagination],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 50,
+            autoHeight: true,
+            speed: 800,
+            pagination: {
+               el: '.advantages__slider__pagination',
+               clickable: true,
+               renderBullet: function (index, className) {
+                  if (props.size > 660) {
+                     return `<div class="${className}"><span class="${className}__text">${arr[index].bullet}</span></div>`;
+                  } else {
+                     return `<div class="${className}"><span class="${className}__text"></span></div>`;
+                  }
+               },
             },
-         },
-      });
-   }, [])
+         });
+      }
+
+      initSwiper();
+
+      return () => {
+         if (slider) {
+            slider.destroy();
+         }
+      };
+   }, [props.size]);
    return (
       <section className="advantages">
          <div className="advantages__container">

@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 
 export const Services = (props) => {
    //??slider set ups
-   const [servicesSlider, setServicesSlider] = useState(null);
+   /*const [servicesSlider, setServicesSlider] = useState(null);
 
    useEffect(() => {
       initSlider();
@@ -44,8 +44,46 @@ export const Services = (props) => {
          deleteSlider();
          initSlider();
       }
+   }*/
+   const [servicesSlider, setServicesSlider] = useState(null);
+
+   useEffect(() => {
+      initSlider();
+      window.addEventListener('resize', handleResize);
+      return () => {
+         window.removeEventListener('resize', handleResize);
+      };
+   }, []);
+
+   function initSlider() {
+      if (!servicesSlider) {
+         const slider = new Swiper('.services__items__slider', {
+            modules: [Navigation],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            // autoHeight: true,
+            speed: 800,
+         });
+         setServicesSlider(slider);
+      }
    }
 
+   function deleteSlider() {
+      if (servicesSlider) {
+         servicesSlider.destroy();
+         setServicesSlider(null);
+      }
+   }
+
+   function handleResize() {
+      if (props.size > 500 && !servicesSlider) {
+         initSlider();
+      } else if (props.size <= 500 && servicesSlider) {
+         deleteSlider();
+      }
+   }
    //!!array of items(u can change them)
    let arr = [
       {
