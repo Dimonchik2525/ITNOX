@@ -1,0 +1,25 @@
+.partners {
+   &__container {}
+
+   &__block {}
+
+   &__header {
+      &__title {}
+
+      &__subtitle {}
+   }
+
+   &__slider {}
+
+   &__wrapper {}
+
+   &__slide {
+      background: #fff;
+      @include adaptiveValue("height", 150, 95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {}
+   }
+}

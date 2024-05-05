@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero"
 import Services from "./Services/Services"
 import Advantages from "./Advantages/Advantages"
 import Reviews from "./Reviews/Reviews"
+import Partners from "./Partners/Partners"
 
 
 export const Main = () => {
@@ -23,6 +24,7 @@ export const Main = () => {
          <Services size={size} />
          <Advantages size={size} />
          <Reviews size={size} />
+         <Partners />
       </main>
    )
 }

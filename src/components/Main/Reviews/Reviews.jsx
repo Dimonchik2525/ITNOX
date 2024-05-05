@@ -60,7 +60,7 @@ export const Reviews = (props) => {
             slider.destroy();
          }
       };
-   }, [props.size]);
+   }, []);
    let items = []
    arr.map((itm, ind) => {
       items.push(
