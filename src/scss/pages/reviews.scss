@@ -1,23 +1,110 @@
-.review {
+.reviews {
+   @include adaptiveValue("padding-top", 120, 40);
+   @include adaptiveValue("padding-bottom", 140, 0);
+   background: url('img/review/review__bg.png') 0 0 /100% 100% no-repeat;
+
    &__container {}
 
-   &__block {}
+   &__block {
+      display: grid;
+      grid-template: auto/1fr 65.83%;
+      column-gap: rem(20);
 
-   &__header {
-      &__title {}
-
-      &__subtitle {}
+      @media (max-width:800px) {
+         grid-template: auto auto/100%;
+         row-gap: rem(40);
+      }
    }
 
-   &__slider {}
+   &__content {}
+
+   &__header {
+      padding-top: rem(10);
+
+      &__title {
+         font-family: var(--second-family);
+         font-weight: 800;
+         @include adaptiveValue("font-size", 40, 24);
+         letter-spacing: 0.15em;
+         text-transform: uppercase;
+         color: var(--white-1);
+
+         &:not(:last-child) {
+            padding-bottom: rem(20);
+         }
+      }
+
+      &__subtitle {
+         font-weight: 400;
+         @include adaptiveValue("font-size", 18, 16);
+         line-height: 150%;
+
+      }
+   }
+
+   &__slider__pagination {
+      display: flex;
+      @include adaptiveValue("column-gap", 10, 0);
+      @include adaptiveValue("height", 100, 50);
+      @include adaptiveValue("padding-top", 20, 0);
+
+      .swiper-pagination-bullet {
+         flex: 1 1 auto;
+         background: #fff;
+         opacity: 0.5;
+         transition: all 0.8s ease 0s;
+         position: relative;
+
+         img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            padding: rem(10);
+         }
+
+         &-active {
+            opacity: 1;
+         }
+      }
+   }
+
+   &__slider {
+      border: rem(1) solid #3f4e72;
+      box-shadow: 20px 20px 70px 0 rgba(21, 21, 38, 0.7), -20px -20px 70px 0 rgba(44, 45, 79, 0.41);
+      background: linear-gradient(153deg, #1a1b30 0%, #21203d 100%);
+   }
 
    &__wrapper {}
 
    &__slide {
-      &__title {}
+      padding-top: rem(60);
+      @include adaptiveValue("padding-left", 50, 10);
+      @include adaptiveValue("padding-right", 50, 10);
+      @include adaptiveValue("padding-bottom", 87, 66);
 
-      &__subtitle {}
+      &__title {
+         font-weight: 500;
+         @include adaptiveValue("font-size", 28, 20);
 
-      &__text {}
+         &:not(:last-child) {
+            padding-bottom: rem(6);
+         }
+      }
+
+      &__subtitle {
+         @include adaptiveValue("font-size", 18, 16);
+         line-height: 150%;
+         opacity: 0.5;
+      }
+
+      &__text {
+         @include adaptiveValue("padding-top", 40, 20);
+         @include adaptiveValue("font-size", 24, 18);
+         line-height: 150%;
+         color: var(--white-1);
+      }
    }
 }
