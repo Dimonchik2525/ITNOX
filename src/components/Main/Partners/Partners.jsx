@@ -1,10 +1,20 @@
 import { useEffect } from "react";
 import Navigate from "../../Common/Navigation"
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Grid, Navigation, Pagination } from "swiper/modules";
 
 export const Partners = (props) => {
    let arr = [
+      'review__3',
+      'review__2',
+      'review__4',
+      'review__3',
+      'review__2',
+      'review__1',
+      'review__4',
+      'review__3',
+      'review__1',
+      'review__2',
       'review__3',
       'review__2',
       'review__4',
@@ -20,14 +30,44 @@ export const Partners = (props) => {
       let slider;
 
       function initSwiper() {
-         slider = new Swiper('.reviews__slider', {
-            modules: [Navigation],
+         slider = new Swiper('.partners__slider', {
+            modules: [Navigation, Grid, Autoplay, Pagination],
             observer: true,
             observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 50,
-            autoHeight: true,
+            loop: true,
+            slidesPerView: 4,
+            grid: {
+               rows: 2,
+            },
+            /*autoplay: {
+               delay: 2500,
+               disableOnInteraction: false,
+            },*/
+            spaceBetween: 10,
             speed: 800,
+            pagination: {
+               el: '.partners__slider__pagination',
+               clickable: true,
+            },
+            breakpoints: {
+               320: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+               },
+               400: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+               },
+               550: {
+                  slidesPerView: 2,
+               },
+               700: {
+                  slidesPerView: 3,
+               },
+               900: {
+                  slidesPerView: 4,
+               },
+            },
          });
       }
 
@@ -43,11 +83,10 @@ export const Partners = (props) => {
    arr.map((itm, ind) => {
       items.push(
          <div key={ind} className="partners__slide swiper-slide">
-            <img src={`img/review/${itm}.svg`} alt=""></img>
+            <img src={`img/partners/${itm}.svg`} alt=""></img>
          </div>
       )
    })
-   console.log(items)
    return (
       <div className="partners">
          <div className="partners__container">
@@ -62,6 +101,7 @@ export const Partners = (props) => {
                      {items}
                   </div>
                </div>
+               <div className="partners__slider__pagination"></div>
             </div>
          </div>
       </div>

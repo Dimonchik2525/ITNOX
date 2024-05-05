@@ -8,6 +8,20 @@
 	box-sizing: content-box;
 	display: flex;
 	position: relative;
+
+	&.partners__wrapper {
+
+		/*display: grid;
+		grid-template: 1fr 1fr/auto;
+		grid-auto-flow: column;
+		row-gap: 10px;*/
+		@media (min-width:400px) {
+			display: grid;
+			grid-template: 1fr 1fr/auto;
+			grid-auto-flow: column;
+			row-gap: 10px;
+		}
+	}
 }
 
 .swiper-vertical {
@@ -25,7 +39,7 @@
 .swiper-initialized {
 	.swiper-slide {
 		flex-shrink: 0;
-		// transition-property: transform;
+		//transition-property: transform;
 	}
 }
 
