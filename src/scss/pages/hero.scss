@@ -72,4 +72,41 @@
          object-position: top;
       }
    }
+
+   &__icons {
+      position: fixed;
+      top: rem(180);
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(40);
+      opacity: 0.5;
+      transition: all 0.8s ease 0s;
+
+      @media (max-width:500px) {
+         display: none;
+      }
+
+      @media (any-hover: hover) {
+         &:hover {
+            opacity: 1;
+         }
+      }
+
+      svg {
+         width: rem(22);
+         height: rem(28);
+         fill: var(--white-1);
+         stroke-width: 0.40px;
+         stroke: #1d1d35;
+         transition: all 0.8s ease 0s;
+      }
+
+      .svg-culc-dims {
+         height: rem(26);
+         width: rem(26);
+         stroke-width: 1.50px;
+         stroke: var(--white-1)
+      }
+   }
 }

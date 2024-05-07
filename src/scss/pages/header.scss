@@ -130,7 +130,7 @@
       }
 
       &__phone {
-         svg {
+         .svg-phone-dims {
             width: rem(16);
             height: rem(20);
          }
@@ -155,7 +155,7 @@
          justify-content: space-between;
       }
 
-      a {
+      &__item {
          width: rem(60);
          height: rem(60);
          display: flex;
@@ -191,7 +191,7 @@
       }
 
       &__culc {
-         svg {
+         .svg-culc-dims {
             height: rem(26);
             width: rem(26);
             stroke-width: 1.50px;

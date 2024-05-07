@@ -1,7 +1,23 @@
+import { useContext } from "react"
 import { SvgCulcIcon, SvgMailIcon, SvgPhoneIcon } from "../SvgIcons"
+import { ShowContext } from "../UseContext"
+import CallPopUp from "../PopUps/CallPopUp"
+import CulcPopUp from "../PopUps/CulcPopUp"
 
 
 export const Header = () => {
+   let { phone, setPhone, culc, setCulc } = useContext(ShowContext)
+
+   function call(type) {
+      if (type == 'phone') {
+         setPhone(true)
+         console.log(phone)
+      }
+      else if (type == 'culc') {
+         setCulc(true)
+         console.log(culc)
+      }
+   }
    return (
       <header className="header">
          <div className="header__container">
@@ -23,15 +39,15 @@ export const Header = () => {
                            <a href="mailto:info@itnox.ru" className="header__contacts__mail__text">info@itnox.ru</a>
                         </div>
                         <div className="header__contacts__phone">
-                           <a href="#"><SvgPhoneIcon /></a>
+                           <a href="tel:88126480377"><SvgPhoneIcon /></a>
                            <a href="tel:88126480377" className="header__contacts__phone__text">8 812 648-03-77 </a>
                         </div>
                      </div>
                      <div className="header__icons">
-                        <a href="" className="header__icons__phone">
+                        <a className='header__icons__item header__icons__phone' onClick={() => call('phone')} href="#">
                            <SvgPhoneIcon />
                         </a>
-                        <a href="" className="header__icons__culc">
+                        <a onClick={() => call('culc')} href="#" className="header__icons__item header__icons__culc">
                            <SvgCulcIcon />
                         </a>
                      </div>
@@ -39,6 +55,8 @@ export const Header = () => {
                </div>
                <button type="button" className="menu__icon icon-menu"><span></span></button>
             </div>
+            {phone ? <CallPopUp /> : ''}
+            {culc ? <CulcPopUp /> : ''}
          </div>
 
       </header>

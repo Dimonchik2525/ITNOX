@@ -1,8 +1,25 @@
 
+import { useContext } from "react"
 import Button from "../../Common/Button"
+import { SvgCulcIcon, SvgPhoneIcon } from "../../SvgIcons"
+import { ShowContext } from "../../UseContext"
+import CallPopUp from "../../PopUps/CallPopUp"
+import CulcPopUp from "../../PopUps/CulcPopUp"
 
 export const Hero = (props) => {
    let but = <Button class={"hero__content__button"}>Посмотреть услуги</Button>
+   let { phone, setPhone, culc, setCulc } = useContext(ShowContext)
+
+   function call(type) {
+      if (type == 'phone') {
+         setPhone(true)
+         console.log(phone)
+      }
+      else if (type == 'culc') {
+         setCulc(true)
+         console.log(culc)
+      }
+   }
    return (
       <section className="hero">
          <div className="hero__container">
@@ -17,6 +34,14 @@ export const Hero = (props) => {
                   <img src="img/hero/hero__img.png" alt="" />
                   {props.size <= 700 ? but : ''}
                </div>
+            </div>
+            <div className="hero__icons">
+               <a onClick={() => call('phone')} href="#" className="hero__icons__item header__icons__item">
+                  <SvgPhoneIcon />
+               </a>
+               <a onClick={() => call('culc')} href="#" className="hero__icons__item header__icons__item">
+                  <SvgCulcIcon />
+               </a>
             </div>
          </div>
       </section>
