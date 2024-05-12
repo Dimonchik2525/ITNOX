@@ -82,6 +82,7 @@
       row-gap: rem(40);
       opacity: 0.5;
       transition: all 0.8s ease 0s;
+      z-index: 2;
 
       @media (max-width:500px) {
          display: none;

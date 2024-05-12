@@ -3,8 +3,6 @@ import { useContext } from "react"
 import Button from "../../Common/Button"
 import { SvgCulcIcon, SvgPhoneIcon } from "../../SvgIcons"
 import { ShowContext } from "../../UseContext"
-import CallPopUp from "../../PopUps/CallPopUp"
-import CulcPopUp from "../../PopUps/CulcPopUp"
 
 export const Hero = (props) => {
    let but = <Button class={"hero__content__button"}>Посмотреть услуги</Button>
@@ -13,11 +11,9 @@ export const Hero = (props) => {
    function call(type) {
       if (type == 'phone') {
          setPhone(true)
-         console.log(phone)
       }
       else if (type == 'culc') {
          setCulc(true)
-         console.log(culc)
       }
    }
    return (

@@ -39,10 +39,10 @@ export const Partners = (props) => {
             grid: {
                rows: 2,
             },
-            /*autoplay: {
+            autoplay: {
                delay: 2500,
                disableOnInteraction: false,
-            },*/
+            },
             spaceBetween: 10,
             speed: 800,
             pagination: {

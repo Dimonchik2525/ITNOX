@@ -1,7 +1,10 @@
 export const Button = (props) => {
-
    return (
-      <button className={`${props.class} button__common`}>{props.children}</button>
+      <button onClick={(e) => {
+         if (props.answer)
+            props.setSuccess(true)
+         e.preventDefault()
+      }} className={`${props.class} button__common`}>{props.children}</button>
    )
 }
 

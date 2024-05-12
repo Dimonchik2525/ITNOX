@@ -6,54 +6,20 @@ import { Navigation } from "swiper/modules";
 
 export const Services = (props) => {
    //??slider set ups
-   /*const [servicesSlider, setServicesSlider] = useState(null);
+   let [servicesSlider, setServicesSlider] = useState(null);
 
    useEffect(() => {
-      initSlider();
+      if (props.size <= 500) {
+         initSlider();
+      }
+      else {
+         deleteSlider()
+      }
       window.addEventListener('resize', handleResize);
       return () => {
          window.removeEventListener('resize', handleResize);
       };
    }, [props.size]);
-
-   function initSlider() {
-      const slider = new Swiper('.services__items__slider', {
-         modules: [Navigation],
-         observer: true,
-         observeParents: true,
-         slidesPerView: 1,
-         spaceBetween: 20,
-         // autoHeight: true,
-         speed: 800,
-      });
-      setServicesSlider(slider);
-   }
-
-   function deleteSlider() {
-      if (servicesSlider) {
-         servicesSlider.destroy();
-         setServicesSlider(null);
-      }
-   }
-
-   function handleResize() {
-      if (props.size > 500) {
-         deleteSlider();
-      }
-      else {
-         deleteSlider();
-         initSlider();
-      }
-   }*/
-   const [servicesSlider, setServicesSlider] = useState(null);
-
-   useEffect(() => {
-      initSlider();
-      window.addEventListener('resize', handleResize);
-      return () => {
-         window.removeEventListener('resize', handleResize);
-      };
-   }, []);
 
    function initSlider() {
       if (!servicesSlider) {
@@ -78,9 +44,9 @@ export const Services = (props) => {
    }
 
    function handleResize() {
-      if (props.size > 500 && !servicesSlider) {
+      if (props.size <= 500 && !servicesSlider) {
          initSlider();
-      } else if (props.size <= 500 && servicesSlider) {
+      } else if (props.size > 500 && servicesSlider) {
          deleteSlider();
       }
    }
@@ -185,14 +151,6 @@ export const Services = (props) => {
          </article >
       )
    })
-   /*useEffect(() => {
-      for (let item of Object.keys(full)) {
-         if (full[item]) {
-            servicesSlider.params.autoHeight = false
-            //console.log(servicesSlider.params.autoHeight)
-         }
-      }
-   }, [full])*/
 
    return (
       <section className="services">
@@ -205,7 +163,7 @@ export const Services = (props) => {
                      {items}
                   </div>
                   :
-                  <div className="services__items__slider swiper">
+                  <div className="services__items__slider  swiper">
                      <div className="services__items__sl services__items__wrapper swiper-wrapper">
                         {items}
                      </div>
