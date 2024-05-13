@@ -39,6 +39,9 @@
    font-size: rem(20);
 }
 
+
+//!! PopUp__Phone=========================================================
+
 .popup__phone {
 
    &::after {
@@ -136,6 +139,7 @@
    }
 }
 
+//!! Call__answer=========================================================
 .call__answer {
 
    &__content {
@@ -157,9 +161,60 @@
    }
 
 
-   &__title {}
+   &__title {
+      max-width: rem(520);
+      font-weight: 500;
+      @include adaptiveValue("font-size", 28, 20);
+      padding-right: rem(40);
+
+      &:not(:last-child) {
+         padding-bottom: rem(40);
+      }
+   }
 
    &__subtitle {
-      p {}
+      max-width: rem(520);
+      line-height: 150%;
+      @include adaptiveValue("font-size", 18, 14);
+
+      p {
+         &:not(:last-child) {
+            padding-bottom: rem(35);
+         }
+      }
+   }
+}
+
+//!! Culc__popUp==========================================================
+
+.popup__culc {
+   &__block {}
+
+   &__title {}
+
+   &__options {
+      &__item {}
+   }
+
+   &__subtitle {}
+
+   &__list {}
+
+   &__item {
+      &__name {}
+
+      &__amount {
+         &__plus {}
+
+         &__number {}
+
+         &__minus {}
+      }
+   }
+
+   &__bottom {
+      &__text {
+         span {}
+      }
    }
 }
