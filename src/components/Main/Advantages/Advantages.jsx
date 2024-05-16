@@ -104,7 +104,7 @@ export const Advantages = (props) => {
       };
    }, [props.size]);
    return (
-      <section className="advantages">
+      <section id="advantages" className="advantages">
          <div className="advantages__container">
             <div className="advantages__block">
                <Navigate text={'Преимущества'} />

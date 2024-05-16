@@ -73,7 +73,7 @@ export const Reviews = (props) => {
    })
 
    return (
-      <div className="reviews">
+      <section id="reviews" className="reviews">
          <div className="reviews__container">
             <Navigate text={'Отзывы'} />
             <div className="reviews__block">
@@ -91,7 +91,7 @@ export const Reviews = (props) => {
                </div>
             </div>
          </div>
-      </div>
+      </section>
    )
 }
 

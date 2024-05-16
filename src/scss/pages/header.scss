@@ -100,6 +100,8 @@
       }
 
       svg {
+         width: rem(20);
+         height: rem(20);
          fill: var(--accent-1);
          background: transparent;
          transition: all 0.8s ease 0s;
@@ -184,9 +186,9 @@
          svg {
             width: rem(22);
             height: rem(28);
-            fill: var(--white-1);
-            stroke-width: 0.40px;
-            stroke: #1d1d35;
+            fill: transparent;
+            stroke-width: 4.40px;
+            stroke: var(--white-1);
          }
       }
 
@@ -206,13 +208,14 @@
 //Burger
 
 .icon-menu {
-   fill: linear-gradient(153deg, #1a1b30 0%, #21203d 100%);
+   background: #1a1b30;
    box-shadow: 20px 20px 70px 0 rgba(21, 21, 38, 0.7), -20px -20px 70px 0 rgba(44, 45, 79, 0.41), inset 2px 2px 4px 0 rgba(151, 149, 255, 0.16), inset -2px -2px 4px 0 rgba(5, 5, 16, 0.4);
    display: none;
+   transition: background 0.8s ease, box-shadow 0.8s ease;
 
    @media (any-hover: hover) {
       &:hover {
-         background: linear-gradient(153deg, #292a46 0%, #131228 100%);
+         background: #292a46;
          box-shadow: 25px 25px 70px 0 rgba(21, 21, 38, 0.8), -15px -15px 70px 0 rgba(44, 45, 79, 0.41), inset 2px 2px 4px 0 rgba(151, 149, 255, 0.16), inset -2px -2px 4px 0 rgba(5, 5, 16, 0.4);
       }
    }

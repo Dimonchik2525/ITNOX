@@ -2,7 +2,7 @@
 import Navigate from "../../Common/Navigation"
 import { useEffect, useState } from "react";
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 export const Services = (props) => {
    //??slider set ups
@@ -24,13 +24,17 @@ export const Services = (props) => {
    function initSlider() {
       if (!servicesSlider) {
          const slider = new Swiper('.services__items__slider', {
-            modules: [Navigation],
+            modules: [Navigation, Pagination],
             observer: true,
             observeParents: true,
             slidesPerView: 1,
             spaceBetween: 20,
             // autoHeight: true,
             speed: 800,
+            pagination: {
+               el: '.services__items__pagination',
+               clickable: true,
+            }
          });
          setServicesSlider(slider);
       }
@@ -143,7 +147,19 @@ export const Services = (props) => {
                })}
                {
                   item.links.length > 8 ?
-                     <li><button onClick={() => change(index)} className="services__item__button">{full[index] ? "Hide <-" : "Еще ->"}</button></li>
+                     <li>
+                        <button onClick={() => change(index)} className="services__item__button">
+                           {full[index] ? (
+                              <>
+                                 Hide <span>&larr;</span>
+                              </>
+                           ) : (
+                              <>
+                                 Еще <span>&rarr;</span>
+                              </>
+                           )}
+                        </button>
+                     </li>
                      :
                      ''
                }
@@ -153,7 +169,7 @@ export const Services = (props) => {
    })
 
    return (
-      <section className="services">
+      <section id="services" className="services">
          <div className="services__container">
             <div className="services__block">
                <Navigate text={'Услуги'} />
@@ -167,6 +183,7 @@ export const Services = (props) => {
                      <div className="services__items__sl services__items__wrapper swiper-wrapper">
                         {items}
                      </div>
+                     <div className="services__items__pagination"></div>
                   </div>
                }
             </div>

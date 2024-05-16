@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { SvgCulcIcon, SvgMailIcon, SvgPhoneIcon } from "../SvgIcons"
+import { SvgCulcIcon, SvgMailIcon, SvgPhoneIcon, SvgPhoneIcon2 } from "../SvgIcons"
 import { ShowContext } from "../UseContext"
 import CallPopUp from "../PopUps/CallPopUp"
 import CulcPopUp from "../PopUps/CulcPopUp"
@@ -28,10 +28,10 @@ export const Header = () => {
                <div className="header__menu menu">
                   <nav className="menu__body">
                      <ul className="menu__list">
-                        <li className="menu__item"><a href="" className="menu__link">Услуги</a></li>
-                        <li className="menu__item"><a href="" className="menu__link">Преимущества</a></li>
-                        <li className="menu__item"><a href="" className="menu__link">Отзывы</a></li>
-                        <li className="menu__item"><a href="" className="menu__link">Партнеры</a></li>
+                        <li className="menu__item"><a href="#" data-goto='#services' className="menu__link">Услуги</a></li>
+                        <li className="menu__item"><a href="#" data-goto='#advantages' className="menu__link">Преимущества</a></li>
+                        <li className="menu__item"><a href="#" data-goto='#reviews' className="menu__link">Отзывы</a></li>
+                        <li className="menu__item"><a href="#" data-goto='#partners' className="menu__link">Партнеры</a></li>
                      </ul>
                      <div className="header__contacts">
                         <div className="header__contacts__mail">
@@ -39,13 +39,13 @@ export const Header = () => {
                            <a href="mailto:info@itnox.ru" className="header__contacts__mail__text">info@itnox.ru</a>
                         </div>
                         <div className="header__contacts__phone">
-                           <a href="tel:88126480377"><SvgPhoneIcon /></a>
+                           <a href="tel:88126480377"><SvgPhoneIcon2 /></a>
                            <a href="tel:88126480377" className="header__contacts__phone__text">8 812 648-03-77 </a>
                         </div>
                      </div>
                      <div className="header__icons">
                         <a className='header__icons__item header__icons__phone' onClick={() => call('phone')} href="#">
-                           <SvgPhoneIcon />
+                           <SvgPhoneIcon2 />
                         </a>
                         <a onClick={() => call('culc')} href="#" className="header__icons__item header__icons__culc">
                            <SvgCulcIcon />

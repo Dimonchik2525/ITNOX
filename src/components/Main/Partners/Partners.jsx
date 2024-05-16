@@ -88,14 +88,14 @@ export const Partners = (props) => {
       )
    })
    return (
-      <div className="partners">
+      <section id="partners" className="partners">
          <div className="partners__container">
             <div className="partners__block">
                <Navigate text={'Партнеры'} />
-               <div className="partners__header">
+               <h2 className="partners__header">
                   <div className="partners__header__title">Нам доверяют</div>
                   <div className="partners__header__subtitle">Мы облегчаем работу более 100 компаний на протяжении многих лет</div>
-               </div>
+               </h2>
                <div className="partners__slider swiper">
                   <div className="partners__wrapper swiper-wrapper">
                      {items}
@@ -104,7 +104,7 @@ export const Partners = (props) => {
                <div className="partners__slider__pagination"></div>
             </div>
          </div>
-      </div>
+      </section>
    )
 }
 

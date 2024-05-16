@@ -43,6 +43,7 @@
       column-gap: rem(9);
 
       .swiper-pagination-bullet {
+         cursor: pointer;
          width: rem(9);
          height: rem(9);
          border-radius: 50%;
