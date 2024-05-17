@@ -8693,11 +8693,11 @@
             _useContext.setPhone, _useContext.culc, _useContext.setCulc);
             var _useState = (0, react.useState)(true), _useState2 = CulcPopUpAnswer_slicedToArray(_useState, 2), proove = _useState2[0], setProove = _useState2[1];
             (0, react.useEffect)((function() {
+                if (!proove) timeout = setTimeout(closeSuccess, 3e3);
                 var timeout;
                 function closeSuccess() {
                     setCulc(false);
                 }
-                timeout = setTimeout(closeSuccess, 3e3);
                 return function() {
                     clearTimeout(timeout);
                 };

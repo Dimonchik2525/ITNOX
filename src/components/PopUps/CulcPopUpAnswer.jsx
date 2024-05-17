@@ -9,13 +9,15 @@ export const CulcPopUpAnswer = (props) => {
    let [proove, setProove] = useState(true)
 
    useEffect(() => {
+      if (!proove) {
+         timeout = setTimeout(closeSuccess, 3000);
+      }
       let timeout;
 
       function closeSuccess() {
          setCulc(false);
       }
 
-      timeout = setTimeout(closeSuccess, 3000);
 
       return () => {
          clearTimeout(timeout);
