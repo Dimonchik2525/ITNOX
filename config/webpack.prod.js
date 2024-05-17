@@ -28,7 +28,7 @@ const config = {
    output: {
       path: `${paths.build}`,
       filename: "../js/[name].[contenthash:8].min.js",
-      publicPath: builFolder,
+      //publicPath: builFolder,
       //filename: 'app.min.js',
       //publicPath: '/',
       clean: true,
