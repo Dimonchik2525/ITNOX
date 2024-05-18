@@ -1,7 +1,7 @@
 .reviews {
    @include adaptiveValue("padding-top", 120, 40);
    @include adaptiveValue("padding-bottom", 140, 0);
-   background: url('img/review/review__bg.png') 0 0 /100% 100% no-repeat;
+   background: url('@img/review/review__bg.png') 0 0 /100% 100% no-repeat;
 
    &__container {}
 

@@ -1,7 +1,7 @@
 .services {
    padding-top: rem(30);
    @include adaptiveValue("padding-bottom", 59, 40);
-   background: url('img/services/services__bg.png') 0 0 /100% 100% no-repeat;
+   background: url('@img/services/services__bg.png') 0 0 /100% 100% no-repeat;
 
    &__container {}
 

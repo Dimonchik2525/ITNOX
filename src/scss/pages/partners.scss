@@ -1,5 +1,5 @@
 .partners {
-   background: url('img/partners/partners__bg.png')0 0 /100% 100% no-repeat;
+   background: url('@img/partners/partners__bg.png')0 0 /100% 100% no-repeat;
    @include adaptiveValue("padding-top", 30, 40);
    @include adaptiveValue("padding-bottom", 90, 60);
 
